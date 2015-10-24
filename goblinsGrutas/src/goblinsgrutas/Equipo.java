@@ -1,5 +1,6 @@
 package goblinsgrutas;
 
+import java.util.*;
 /**
  *
  * @author botarga
@@ -7,23 +8,20 @@ package goblinsgrutas;
 public class Equipo {
     private String nombre;
     private String descripcion;
-    private int bonificacionAtaque;
-    private String bonHabilidad;
-    private int valorBonHabilidad;
-    private int penAtaque;
-    private int valorPenHabilidad;
-    private String penHabilidad;
+    private List<Bono> bonos;
     
-    private Equipo(String nombre, String descripcion, int bonificacionAtque
-            , String bonHabilidad, int valorBonHabilidad, int penAtaque
-            , int valorPenHabilidad, String penHabilidad){
+    private Equipo(String nombre, String descripcion, List<Bono> bonos){
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.bonificacionAtaque = bonificacionAtaque;
-        this.bonHabilidad = bonHabilidad;
-        this.valorBonHabilidad = valorBonHabilidad;
-        this.penAtaque = penAtaque;
-        this.valorPenHabilidad = valorPenHabilidad;
-        this.penHabilidad = penHabilidad;
+        this.bonos = bonos;
+    }
+    
+    @Override
+    public String toString(){
+        String s;
+        s = nombre + ": " + descripcion + "Bonos: ";
+        for(Bono b : bonos)
+            s = s+b;
+        return s;
     }
 }
