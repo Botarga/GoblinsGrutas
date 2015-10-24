@@ -11,5 +11,5 @@ public class Personaje {
     private String profesion;
     private int vida, fuerza, agilidad, inteligencia, carisma;
     private List<Habilidad> habilidades;
-    
+    private List<Equipo> equipos;
 }
