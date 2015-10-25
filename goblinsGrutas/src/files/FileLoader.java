@@ -11,6 +11,7 @@ import java.io.*;
 public class FileLoader {
     public static Personaje leerPersonaje(String path){
         Personaje p = null;
+        
         String linea;
         String[] data;
         String[] dataBon;
