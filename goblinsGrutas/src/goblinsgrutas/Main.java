@@ -86,7 +86,7 @@ public class Main {
                     break;
                     
                 case 2:
-                    FileLoader.recargarPersonajes();
+                    personajes = FileLoader.recargarPersonajes();
                     break;
                     
                 case 3:

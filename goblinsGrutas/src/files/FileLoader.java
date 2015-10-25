@@ -66,6 +66,18 @@ public class FileLoader {
     
     public static List<Personaje> recargarPersonajes(){
         List<Personaje> r = new ArrayList<>();
+        File carpeta = new File("personajes/");
+        File[] archivos = carpeta.listFiles();
+        
+        Main.clearConsole();
+        
+        System.out.println("Recargando personajes...");
+        for(File f : archivos)
+            if(f.getName().compareTo("personajeFormato.txt") != 0)
+                r.add(leerPersonaje(f.getName()));   
+        
+        System.out.println("Personajes recargados");
+        Main.pauseToKey();
         
         return r;
     }
