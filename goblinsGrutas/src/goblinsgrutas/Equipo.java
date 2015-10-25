@@ -10,7 +10,7 @@ public class Equipo {
     private String descripcion;
     private List<Bono> bonos;
     
-    private Equipo(String nombre, String descripcion, List<Bono> bonos){
+    public Equipo(String nombre, String descripcion, List<Bono> bonos){
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.bonos = bonos;
@@ -19,7 +19,7 @@ public class Equipo {
     @Override
     public String toString(){
         String s;
-        s = nombre + ": " + descripcion + "Bonos: ";
+        s = nombre + ": " + descripcion + " Bonos: ";
         for(Bono b : bonos)
             s = s+b;
         return s;

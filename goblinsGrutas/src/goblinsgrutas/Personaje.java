@@ -2,10 +2,12 @@ package goblinsgrutas;
 
 import java.util.*;
 import static java.lang.System.out;
+
 /**
  *
  * @author botarga
  */
+
 public class Personaje {
     private String nombre;
     private String raza;
@@ -13,6 +15,7 @@ public class Personaje {
     private int vida, fuerza, agilidad, inteligencia, carisma;
     private List<Habilidad> habilidades;
     private List<Equipo> equipos;
+    
     
     
     public Personaje(String nombre, String raza, String profesion, int vida
