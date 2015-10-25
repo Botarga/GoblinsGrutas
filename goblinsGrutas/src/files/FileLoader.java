@@ -3,15 +3,16 @@ package files;
 import java.util.*;
 import goblinsgrutas.*;
 import java.io.*;
+import java.nio.file.Paths;
 
 /**
  *
  * @author botarga
  */
 public class FileLoader {
-    public static Personaje leerPersonaje(String path){
+    public static Personaje leerPersonaje(String r){
         Personaje p = null;
-        
+        String path = "personajes/" + r;
         String linea;
         String[] data;
         String[] dataBon;
@@ -53,6 +54,9 @@ public class FileLoader {
             p = new Personaje(nombre, raza, profesion, dat[0], dat[1], dat[2]
                     , dat[3], dat[4], habilidades, equipo);
             
+        }catch(FileNotFoundException e){
+            System.err.println("El fichero " + path + " no existe");
+            System.err.println("Error: " + e.getMessage());
         }catch(IOException e){
             System.err.println("Error: " + e.getMessage());
         }
@@ -60,6 +64,10 @@ public class FileLoader {
         return p;
     }
     
-    
+    public static List<Personaje> recargarPersonajes(){
+        List<Personaje> r = new ArrayList<>();
+        
+        return r;
+    }
 
 }

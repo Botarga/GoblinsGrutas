@@ -1,5 +1,6 @@
 package goblinsgrutas;
 
+import files.FileLoader;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Level;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
 public class Main {
     private static boolean windows;
     private static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    private List<Personaje> personajes;
+    private static List<Personaje> personajes = new ArrayList<>();
     
     public static String[] habilidades = {
         "Combate", "Ataque", "Defensa", "Conocimientos", "Latrocinio", "Magia"
@@ -29,6 +30,29 @@ public class Main {
             System.out.printf("\033[2J\033[H");
     }
     
+    public static void mostrarPersonajes(){
+        int opcion;
+        boolean salir = false;
+        
+        do{
+            clearConsole();
+            System.out.println("Elige el personaje que quieres ver");
+            for(int i = 0; i < personajes.size(); i++)
+                System.out.println("\t" + (i+1) + " " + personajes.get(i).getNombre());
+            System.out.println("\t0 Volver");
+            
+            opcion = readInt("Introduce una opcion");
+            if(opcion == 0)
+                salir = true;
+            else{
+                if(opcion > personajes.size() || opcion < 0)
+                    System.out.println("Numero incorrecto");
+                else
+                    personajes.get(opcion-1).mostrarInfo();
+            }
+            
+        }while(!salir);
+    }
     
     public static void gestionPersonajesMenu(){
         int opcion;
@@ -39,11 +63,12 @@ public class Main {
         
             System.out.println("Menu de gestión de personajes");
             System.out.println("1 Cargar personaje de fichero");
-            System.out.println("2 Crear personaje desde consola");
+            System.out.println("2 Recargar personajes");
             System.out.println("3 Guardar personajes en un directorio");
+            System.out.println("4 Mostrar información de un personaje");
             System.out.println("0 Volver");
             
-            opcion = readInt("Introduce una opcion");
+            opcion = readInt("Introduce una opcion: ");
             
             switch(opcion){
                 case 0:
@@ -51,12 +76,24 @@ public class Main {
                     break;
                     
                 case 1:
+                    Personaje pAux = FileLoader.leerPersonaje(readString("Introduce el nombre del personaje \"nombre.txt\": "));
+                    if(pAux != null){
+                        System.out.println("Personaje Cargado!");
+                        personajes.add(pAux);
+                    }
+                    pauseToKey();
+                    
                     break;
                     
                 case 2:
+                    FileLoader.recargarPersonajes();
                     break;
                     
                 case 3:
+                    break;
+                    
+                case 4:
+                    mostrarPersonajes();
                     break;
                     
                 default:
@@ -66,6 +103,9 @@ public class Main {
         }while(!salir);
     }
     
+    public static void pauseToKey(){
+        readString("Pulsa INTRO para continuar...");
+    }
     
     public static String readString(String question){
         String data = null;

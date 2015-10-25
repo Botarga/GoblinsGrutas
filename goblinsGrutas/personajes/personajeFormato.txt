@@ -1,0 +1,19 @@
+[Nombre]
+[Raza]
+[Profesión]
+[Vida]
+[Fuerza]
+[Agilidad]
+[Inteligencia]
+[Carisma]
+[Combate]
+[Ataque]
+[Defensa]
+[Conocimientos]
+[Latrocinio]
+[Magia]
+[Sociales]
+< //Equipo
+nombre;descripcion
+bono;valor...bono;valor
+>

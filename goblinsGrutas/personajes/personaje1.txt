@@ -1,0 +1,21 @@
+Botarga
+Humano
+Herrero
+100
+10
+12
+9
+8
+24
+32
+6
+3
+8
+2
+8
+<
+espada de madera;una espada tallada de roble
+ataque;4;defensa;0
+escudo de piedra;escudo de piedra
+ataque;0;defensa;2
+>

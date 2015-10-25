@@ -34,6 +34,7 @@ public class Personaje {
     }
     
     public void mostrarInfo(){
+        goblinsgrutas.Main.clearConsole();
         out.println("Nombre: " + nombre);
         out.println("Raza: " + raza);
         out.println("Profesion: " + profesion);
@@ -49,7 +50,12 @@ public class Personaje {
         out.println("EQUIPO");
         for(Equipo e : equipos)
             out.println("\t" + e);
-        
-        
+        goblinsgrutas.Main.pauseToKey();
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+    
+    
 }
