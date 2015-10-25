@@ -24,4 +24,14 @@ public class Equipo {
             s = s+b;
         return s;
     }
+    /*------GETTER-----*/
+    public String getNombre() {
+        return nombre;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public List<Bono> getBonos() {
+        return bonos;
+    }
 }

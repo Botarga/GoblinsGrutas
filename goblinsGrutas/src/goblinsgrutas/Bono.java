@@ -13,7 +13,14 @@ public class Bono {
         this.nombre = nombre;
         this.valor = valor;
     }
-    
+
+    /*-----GETTER------*/
+    public String getNombre() {
+        return nombre;
+    }  
+    public int getValor() {
+        return valor;
+    }  
     @Override
     public String toString(){
         return "(" + valor + ") " + nombre;

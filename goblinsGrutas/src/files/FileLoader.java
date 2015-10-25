@@ -3,7 +3,6 @@ package files;
 import java.util.*;
 import goblinsgrutas.*;
 import java.io.*;
-import java.nio.file.Paths;
 
 /**
  *
@@ -81,5 +80,38 @@ public class FileLoader {
         
         return r;
     }
-
+    
+    public static void guardarPersonajes(List<Personaje> personajes){
+        String path = "personajes/";
+        
+        for(Personaje p : personajes){
+            try(PrintWriter pw = new PrintWriter(new FileWriter(path 
+                    + p.getNombre() + ".txt"))){
+                pw.println(p.getNombre());
+                pw.println(p.getRaza());
+                pw.println(p.getProfesion());
+                pw.println(p.getVida());
+                pw.println(p.getFuerza());
+                pw.println(p.getAgilidad());
+                pw.println(p.getInteligencia());
+                pw.println(p.getCarisma());
+                //Habilidades
+                for(int i = 0; i < p.getHabilidades().size(); i++)
+                    pw.println(p.getHabilidades().get(i));
+                //Equipo
+                pw.println("<");
+                for(Equipo e : p.getEquipos()){
+                    pw.println(e.getNombre() + ";" + e.getDescripcion());
+                    for(Bono b : e.getBonos())
+                        pw.print(b.getNombre() + ";" + b.getValor() + ";");
+                    
+                    pw.println();
+                }
+                pw.println(">");
+                
+            }catch(IOException e){
+                System.err.println("Error: " + e.getMessage());
+            }
+        }
+    }
 }

@@ -30,6 +30,7 @@ public class Main {
             System.out.printf("\033[2J\033[H");
     }
     
+    
     public static void mostrarPersonajes(){
         int opcion;
         boolean salir = false;
@@ -54,6 +55,7 @@ public class Main {
         }while(!salir);
     }
     
+    
     public static void gestionPersonajesMenu(){
         int opcion;
         boolean salir = false;
@@ -76,7 +78,9 @@ public class Main {
                     break;
                     
                 case 1:
-                    Personaje pAux = FileLoader.leerPersonaje(readString("Introduce el nombre del personaje \"nombre.txt\": "));
+                    Personaje pAux = FileLoader.leerPersonaje(
+                        readString("Introduce el nombre del personaje " + 
+                            "\"nombre.txt\": "));
                     if(pAux != null){
                         System.out.println("Personaje Cargado!");
                         personajes.add(pAux);
@@ -90,6 +94,7 @@ public class Main {
                     break;
                     
                 case 3:
+                    FileLoader.guardarPersonajes(personajes);
                     break;
                     
                 case 4:
@@ -97,16 +102,15 @@ public class Main {
                     break;
                     
                 default:
-                    break;               
-                      
+                    break;                               
             }
         }while(!salir);
     }
     
+    
     public static void pauseToKey(){
         readString("Pulsa INTRO para continuar...");
     }
-    
     public static String readString(String question){
         String data = null;
         
@@ -119,7 +123,6 @@ public class Main {
         
         return data;
     }
-    
     public static int readInt(String question){
         return Integer.parseInt(readString(question));
     }

@@ -53,9 +53,37 @@ public class Personaje {
         goblinsgrutas.Main.pauseToKey();
     }
 
+    
+    /*-----GETTERS-----*/
     public String getNombre() {
         return nombre;
     }
-    
-    
+    public String getRaza() {
+        return raza;
+    }
+    public String getProfesion() {
+        return profesion;
+    }
+    public int getVida() {
+        return vida;
+    }
+    public int getFuerza() {
+        return fuerza;
+    }
+    public int getAgilidad() {
+        return agilidad;
+    }
+    public int getInteligencia() {
+        return inteligencia;
+    }
+    public int getCarisma() {
+        return carisma;
+    }
+    public List<Habilidad> getHabilidades() {
+        return habilidades;
+    }
+    public List<Equipo> getEquipos() {
+        return equipos;
+    }
+      
 }
